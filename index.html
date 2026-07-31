@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nitisit Senaharn — Data Science &amp; Cyber Security</title>
+<meta name="description" content="Portfolio of Nitisit Senaharn — Computer Science student at Bangkok University, focused on Data Science and Cyber Security." />
+<meta name="theme-color" content="#faf9f6" />
+
+<!-- ── Fonts ───────────────────────────────────────────────────────────── -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<!-- ── Styles ──────────────────────────────────────────────────────────── -->
+<link rel="stylesheet" href="style.css" />
+
+<!-- ── Favicon (inline SVG shield) ─────────────────────────────────────── -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23faf9f6'/%3E%3Cpath d='M16 6l8 3v7c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V9l8-3z' fill='none' stroke='%234b6e8c' stroke-width='2'/%3E%3C/svg%3E" />
+</head>
+
+<body>
+
+<!-- Reading-progress bar pinned to the very top of the viewport -->
+<div class="scroll-progress" aria-hidden="true"><span id="progress-bar"></span></div>
+
+<!-- Skip link for keyboard users -->
+<a class="skip-link" href="#home">Skip to content</a>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     NAVBAR
+     ═══════════════════════════════════════════════════════════════════ -->
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+
+    <a href="#home" class="brand" aria-label="Nitisit Senaharn — home">
+      <span class="brand__text">
+        <strong>Nitisit</strong>
+      </span>
+    </a>
+
+    <nav class="nav__links" id="nav-links" aria-label="Primary">
+      <a href="#home"     class="nav__link">Home</a>
+      <a href="#about"    class="nav__link">About</a>
+      <a href="#skills"   class="nav__link">Skills</a>
+      <a href="#projects" class="nav__link">Projects</a>
+      <a href="#activities" class="nav__link">Activities</a>
+      <a href="#certifications" class="nav__link">Certifications</a>
+      <a href="#contact"  class="nav__link nav__link--cta">Contact</a>
+    </nav>
+
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+
+  </div>
+</header>
+
+<main>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     1 — HERO
+     ═══════════════════════════════════════════════════════════════════ -->
+<section id="home" class="hero">
+  <!-- Decorative layers: grid, glow orbs, scanline -->
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__grid"></div>
+    <div class="orb orb--a"></div>
+    <div class="orb orb--b"></div>
+    <div class="hero__fade"></div>
+  </div>
+
+  <div class="container hero__inner">
+
+    <div class="hero__copy">
+      <h1 class="hero__title reveal" data-delay="1">
+        Nitisit<br /><span class="grad">Senaharn</span>
+      </h1>
+
+      <p class="hero__tagline reveal" data-delay="3">
+        Welcome to my web portfolio
+      </p>
+
+      <div class="hero__cta reveal" data-delay="4">
+        <a href="#projects" class="btn btn--primary">View Projects</a>
+        <a href="#contact" class="btn btn--ghost">Contact Me</a>
+      </div>
+
+      <ul class="hero__stats reveal" data-delay="5">
+        <li><strong data-count="12">12</strong><span>Certifications</span></li>
+        <li><strong data-count="2">2</strong><span>Featured Projects</span></li>
+        <li><strong data-count="15">15</strong><span>Security Tools</span></li>
+      </ul>
+    </div>
+
+    <div class="hero__visual reveal" data-delay="3">
+      <div class="avatar">
+        <div class="avatar__ring" aria-hidden="true"></div>
+        <div class="avatar__ring avatar__ring--2" aria-hidden="true"></div>
+        <div class="avatar__frame">
+          <!-- Swap this src with your own photo: assets/profile.jpg -->
+          <img src="assets/profile.jpg" alt="Portrait of Nitisit Senaharn"
+               onerror="this.classList.add('is-missing')" />
+          <span class="avatar__fallback" aria-hidden="true">NS</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <a href="#about" class="scroll-cue" aria-label="Scroll to about section">
+    <span class="scroll-cue__line" aria-hidden="true"></span>
+    <span class="scroll-cue__text">Scroll</span>
+  </a>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     2 — ABOUT
+     ═══════════════════════════════════════════════════════════════════ -->
+<section id="about" class="section">
+  <div class="container">
+
+    <header class="section__head reveal">
+      <span class="section__num mono">01</span>
+      <h2 class="section__title">About Me</h2>
+    </header>
+
+    <div class="about">
+
+      <article class="about__bio reveal">
+        <p class="lead">
+          I'm a Computer Science student at <strong>Bangkok University</strong>, in the
+          <strong>School of Information Technology and Innovation</strong>, focusing on
+          <strong>Data Science and Cyber Security</strong> as my major elective.
+        </p>
+        <p>
+          I like the space where those two overlap — data can tell you something's wrong, and
+          security work is about figuring out why. I've picked up some of that through coursework
+          and labs, mostly around penetration testing and a bit of detection work.
+        </p>
+        <p>
+          I also have some experience with web development, which just means I've seen things from
+          both sides — building and breaking. That mix is what I find interesting.
+        </p>
+
+        <div class="about__meta">
+          <div class="about__meta-item">
+            <div>
+              <span class="k">University</span>
+              <span class="v">Bangkok University</span>
+            </div>
+          </div>
+          <div class="about__meta-item">
+            <div>
+              <span class="k">School</span>
+              <span class="v">Information Technology &amp; Innovation</span>
+            </div>
+          </div>
+          <div class="about__meta-item">
+            <div>
+              <span class="k">Department</span>
+              <span class="v">Computer Science</span>
+            </div>
+          </div>
+          <div class="about__meta-item">
+            <div>
+              <span class="k">Major Elective</span>
+              <span class="v">Data Science &amp; Cyber Security</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <aside class="about__side">
+        <div class="card card--teaser reveal" data-delay="1">
+          <h3>Build</h3>
+          <p>Python, JavaScript, SQL and front-end work — from data scripts to full responsive interfaces.</p>
+        </div>
+        <div class="card card--teaser reveal" data-delay="2">
+          <h3>Break</h3>
+          <p>Web enumeration, exploitation and privilege escalation on Linux targets, using the standard offensive toolchain.</p>
+        </div>
+        <div class="card card--teaser reveal" data-delay="3">
+          <h3>Analyse</h3>
+          <p>Machine learning and AI foundations applied to detection — turning noisy log streams into alerts worth reading.</p>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     3 — TECHNICAL SKILLS
+     ═══════════════════════════════════════════════════════════════════ -->
+<section id="skills" class="section section--alt">
+  <div class="container">
+
+    <header class="section__head reveal">
+      <span class="section__num mono">02</span>
+      <h2 class="section__title">Technical Skills</h2>
+    </header>
+
+    <div class="skills">
+
+      <article class="card skill-card reveal">
+        <header class="skill-card__head">
+          <div>
+            <h3>Languages</h3>
+          </div>
+        </header>
+        <ul class="badges">
+          <li class="badge">Python</li>
+          <li class="badge">HTML</li>
+          <li class="badge">CSS</li>
+          <li class="badge">JavaScript</li>
+          <li class="badge">SQL</li>
+          <li class="badge">React.js</li>
+          <li class="badge">Next.js</li>
+        </ul>
+      </article>
+
+      <article class="card skill-card reveal" data-delay="1">
+        <header class="skill-card__head">
+          <div>
+            <h3>Tools &amp; Design</h3>
+          </div>
+        </header>
+        <ul class="badges">
+          <li class="badge">Figma</li>
+          <li class="badge">VS Code</li>
+        </ul>
+      </article>
+
+      <article class="card skill-card reveal" data-delay="2">
+        <header class="skill-card__head">
+          <div>
+            <h3>Cyber Security &amp; Systems</h3>
+          </div>
+        </header>
+        <ul class="badges">
+          <li class="badge">Linux</li>
+          <li class="badge">Web Enumeration</li>
+          <li class="badge">Penetration Testing</li>
+          <li class="badge">Vulnerability Scanning</li>
+          <li class="badge">Reverse Shell</li>
+        </ul>
+        <p class="skill-card__sublabel">Tools</p>
+        <ul class="badges badges--sub">
+          <li class="badge badge--sub">Nmap</li>
+          <li class="badge badge--sub">Gobuster</li>
+          <li class="badge badge--sub">Nikto</li>
+          <li class="badge badge--sub">Metasploit</li>
+          <li class="badge badge--sub">SearchSploit</li>
+          <li class="badge badge--sub">cURL</li>
+          <li class="badge badge--sub">Burp Suite</li>
+          <li class="badge badge--sub">Nessus</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     4 — PROJECTS   (cards are rendered statically; detail comes from JS)
+     ═══════════════════════════════════════════════════════════════════ -->
+<section id="projects" class="section">
+  <div class="container">
+
+    <header class="section__head reveal">
+      <span class="section__num mono">03</span>
+      <h2 class="section__title">Projects</h2>
+    </header>
+
+    <div class="projects">
+
+      <!-- Project 1 — DC-1 -->
+      <article class="project-card reveal" data-project="dc1" tabindex="0" role="button"
+               aria-label="Open details for DC-1 boot-to-root penetration test">
+        <div class="project-card__glow" aria-hidden="true"></div>
+
+        <div class="project-card__top">
+          <span class="chip chip--danger">Penetration Test</span>
+          <span class="project-card__index mono">P·01</span>
+        </div>
+
+        <h3 class="project-card__title">DC-1 — Boot-to-Root Penetration Test</h3>
+        <p class="project-card__meta mono">Group project · Cyber Security course · OffSec Proving Grounds</p>
+
+        <p class="project-card__desc">
+          A black-box penetration test against a Drupal 7 Linux server. Recon to full system
+          compromise: enumeration, Drupalgeddon2 exploitation, then root via a SUID
+          misconfiguration on <code>/usr/bin/find</code>.
+        </p>
+
+        <footer class="project-card__foot">
+          <span class="project-card__gallery-count">7 images</span>
+          <span class="project-card__open">View case study</span>
+        </footer>
+      </article>
+
+      <!-- Project 2 — AEGIS -->
+      <article class="project-card reveal" data-delay="1" data-project="aegis" tabindex="0" role="button"
+               aria-label="Open details for AEGIS AI-enhanced SIEM project">
+        <div class="project-card__glow" aria-hidden="true"></div>
+
+        <div class="project-card__top">
+          <span class="chip chip--accent">AI · Security Ops</span>
+          <span class="project-card__index mono">P·02</span>
+        </div>
+
+        <h3 class="project-card__title">AEGIS — AI-Enhanced SIEM for Cloud Infrastructure</h3>
+        <p class="project-card__meta mono">Industry-Driven Innovation Project · IT Empowering Day 2026</p>
+
+        <p class="project-card__desc">
+          A SIEM rebuilt for hyperscale AI infrastructure — GPU-accelerated detection with NVIDIA
+          Morpheus, a Kafka streaming pipeline at Gbps–Tbps scale, and an LLM assistant that
+          explains alerts instead of burying analysts in them.
+        </p>
+
+        <footer class="project-card__foot">
+          <span class="project-card__gallery-count" aria-hidden="true"></span>
+          <span class="project-card__open">View case study</span>
+        </footer>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     5 — ACTIVITIES
+     ═══════════════════════════════════════════════════════════════════ -->
+<section id="activities" class="section section--alt">
+  <div class="container">
+
+    <header class="section__head reveal">
+      <span class="section__num mono">04</span>
+      <h2 class="section__title">Activities</h2>
+      <p class="section__sub">Hackathons, seminars and showcases.</p>
+    </header>
+
+    <ol class="timeline">
+
+      <li class="timeline__item reveal">
+        <span class="timeline__dot" aria-hidden="true"></span>
+        <div class="card timeline__card" tabindex="0" role="button"
+             data-activity="hackathon"
+             aria-label="View photos: AI Mini Hackathon 2026">
+          <span class="timeline__hint" aria-hidden="true">View photos</span>
+          <div class="timeline__date mono">May 21, 2026</div>
+          <h3>AI Mini Hackathon 2026</h3>
+          <p class="timeline__role">Participant — “Solving Real-World Problems”</p>
+          <p>
+            A hands-on hackathon built around applying AI to practical problems, organised by the
+            School of Information Technology and Innovation, Bangkok University.
+          </p>
+        </div>
+      </li>
+
+      <li class="timeline__item reveal" data-delay="1">
+        <span class="timeline__dot" aria-hidden="true"></span>
+        <div class="card timeline__card" tabindex="0" role="button"
+             data-activity="nextgen"
+             aria-label="View photos: NextGen Tech — Unlock Your Future">
+          <span class="timeline__hint" aria-hidden="true">View photos</span>
+          <div class="timeline__date mono">May 8, 2026</div>
+          <h3>NextGen Tech — “Unlock Your Future”</h3>
+          <p class="timeline__role">Attendee — technology seminar</p>
+          <p>
+            An industry seminar organised by Thai-Nichi Institute of Technology together with
+            MFEC, Boswell Digital and Google, covering where the industry is heading and the
+            skills it's hiring for.
+          </p>
+        </div>
+      </li>
+
+      <li class="timeline__item reveal" data-delay="2">
+        <span class="timeline__dot timeline__dot--accent" aria-hidden="true"></span>
+        <div class="card timeline__card" tabindex="0" role="button"
+             data-activity="itEmpowering"
+             aria-label="View photos: IT Empowering Day 2026">
+          <span class="timeline__hint" aria-hidden="true">View photos</span>
+          <div class="timeline__date mono">2026</div>
+          <h3>IT Empowering Day 2026</h3>
+          <p class="timeline__role">Attendee &amp; Presenter — AEGIS project</p>
+          <p>
+            Presented <strong>AEGIS</strong>, an AI-enhanced SIEM for cloud infrastructure, as part of
+            the Industry-Driven Innovation Project showcase.
+          </p>
+        </div>
+      </li>
+
+      <li class="timeline__item reveal" data-delay="3">
+        <span class="timeline__dot" aria-hidden="true"></span>
+        <div class="card timeline__card" tabindex="0" role="button"
+             data-activity="cyberApocalypse"
+             aria-label="View photos: Hack The Box — Cyber Apocalypse CTF 2026">
+          <span class="timeline__hint" aria-hidden="true">View photos</span>
+          <div class="timeline__date mono">24–29 July 2026</div>
+          <h3>Hack The Box — Cyber Apocalypse CTF 2026: “The Salt Crown”</h3>
+          <p class="timeline__role">Team: BU-iTi CTF Team</p>
+          <p>
+            Competed in a global Capture The Flag competition, ranking 183rd out of 6,744 teams —
+            solving 89 of 136 challenges for a total of 57,700 points.
+          </p>
+        </div>
+      </li>
+
+    </ol>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     6 — CERTIFICATIONS
+     ═══════════════════════════════════════════════════════════════════ -->
+<section id="certifications" class="section">
+  <div class="container">
+
+    <header class="section__head reveal">
+      <span class="section__num mono">05</span>
+      <h2 class="section__title">Certifications</h2>
+      <p class="section__sub">12 credentials across AI &amp; data, cloud, and offensive security.</p>
+    </header>
+
+    <!-- Filter -->
+    <div class="filters reveal" role="group" aria-label="Filter certifications by category">
+      <button type="button" class="filter is-active" data-filter="all"   aria-pressed="true">All</button>
+      <button type="button" class="filter" data-filter="ai"    aria-pressed="false">AI &amp; Data</button>
+      <button type="button" class="filter" data-filter="cloud" aria-pressed="false">Cloud</button>
+      <button type="button" class="filter" data-filter="cyber" aria-pressed="false">Cyber Security</button>
+    </div>
+
+    <!-- ── AI & Data ── -->
+    <div class="cert-group" data-group="ai">
+      <h3 class="cert-group__title reveal">
+        AI &amp; Data <span class="cert-group__count">6</span>
+      </h3>
+      <div class="cert-grid">
+
+        <article class="card cert reveal" tabindex="0" role="button"
+                 data-cert-image="ai-data-01-aws-genai-foundations.jpg"
+                 aria-label="View certificate: AWS Academy Graduate — Generative AI Foundations">
+          <span class="cert__hint" aria-hidden="true">Click to view</span>
+          <h4>AWS Academy Graduate — Generative AI Foundations</h4>
+          <p class="cert__issuer">Amazon Web Services · 12 hours</p>
+          <span class="cert__date mono">Apr 2026</span>
+        </article>
+
+        <article class="card cert reveal" data-delay="1" tabindex="0" role="button"
+                 data-cert-image="ai-data-02-aws-ml-foundations.jpg"
+                 aria-label="View certificate: AWS Academy Graduate — Machine Learning Foundations">
+          <span class="cert__hint" aria-hidden="true">Click to view</span>
+          <h4>AWS Academy Graduate — Machine Learning Foundations</h4>
+          <p class="cert__issuer">Amazon Web Services · 20 hours</p>
+          <span class="cert__date mono">Apr 2026</span>
+        </article>
+
+        <article class="card cert reveal" data-delay="2" tabindex="0" role="button"
+                 data-cert-image="ai-data-03-aws-ml-nlp.jpg"
+                 aria-label="View certificate: AWS Academy Graduate — Machine Learning for Natural Language Processing">
+          <span class="cert__hint" aria-hidden="true">Click to view</span>
+          <h4>AWS Academy Graduate — Machine Learning for Natural Language Processing</h4>
+          <p class="cert__issuer">Amazon Web Services · 20 hours</p>
+          <span class="cert__date mono">Apr 2026</span>
+        </article>
+
+        <article class="card cert reveal" tabindex="0" role="button"
+                 data-cert-image="ai-data-04-oci-ai-foundations.jpg"
+                 aria-label="View certificate: Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate">
+          <span class="cert__hint" aria-hidden="true">Click to view</span>
+          <h4>Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</h4>
+          <p class="cert__issuer">Oracle</p>
+          <span class="cert__date mono">Oct 2025</span>
+        </article>
+
+        <article class="card cert reveal" data-delay="1" tabindex="0" role="button"
+                 data-cert-image="ai-data-05-oracle-ai-database-aws.jpg"
+                 aria-label="View certificate: Oracle AI Database@AWS Certified Architect Professional">
+          <span class="cert__hint" aria-hidden="true">Click to view</span>
+          <h4>Oracle AI Database@AWS Certified Architect Professional</h4>
+          <p class="cert__issuer">Oracle</p>
+          <span class="cert__date mono">Oct 2025</span>
+        </article>
+
+        <article class="card cert reveal" data-delay="2" tabindex="0" role="button"
+                 data-cert-image="ai-data-06-oracle-data-platform.jpg"
+                 aria-label="View certificate: Oracle Data Platform 2025 Certified Foundations Associate">
+          <span class="cert__hint" aria-hidden="true">Click to view</span>
+          <h4>Oracle Data Platform 2025 Certified Foundations Associate</h4>
+          <p class="cert__issuer">Oracle</p>
+          <span class="cert__date mono">Oct 2025</span>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- ── Cloud ── -->
+    <div class="cert-group" data-group="cloud">
+      <h3 class="cert-group__title reveal">
+        Cloud <span class="cert-group__count">2</span>
+      </h3>
+      <div class="cert-grid">
+
+        <article class="card cert reveal" tabindex="0" role="button"
+                 data-cert-image="cloud-01-oci-foundations.jpg"
+                 aria-label="View certificate: Oracle Cloud Infrastructure 2025 Certified Foundations Associate">
+          <span class="cert__hint" aria-hidden="true">Click to view</span>
+          <h4>Oracle Cloud Infrastructure 2025 Certified Foundations Associate</h4>
+          <p class="cert__issuer">Oracle</p>
+          <span class="cert__date mono">Oct 2025</span>
+        </article>
+
+        <article class="card cert reveal" data-delay="1" tabindex="0" role="button"
+                 data-cert-image="cloud-02-oci-multicloud-architect.jpg"
+                 aria-label="View certificate: Oracle Cloud Infrastructure 2025 Certified Multicloud Architect Professional">
+          <span class="cert__hint" aria-hidden="true">Click to view</span>
+          <h4>Oracle Cloud Infrastructure 2025 Certified Multicloud Architect Professional</h4>
+          <p class="cert__issuer">Oracle</p>
+          <span class="cert__date mono">Oct 2025</span>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- ── Cyber Security ── -->
+    <div class="cert-group" data-group="cyber">
+      <h3 class="cert-group__title reveal">
+        Cyber Security <span class="cert-group__count">4</span>
+      </h3>
+      <div class="cert-grid">
+
+        <article class="card cert reveal" tabindex="0" role="button"
+                 data-cert-image="cybersecurity-01-ncsa-foundation.jpg"
+                 aria-label="View certificate: NCSA Cybersecurity Foundation Course">
+          <span class="cert__hint" aria-hidden="true">Click to view</span>
+          <h4>Cybersecurity Foundation Course</h4>
+          <p class="cert__issuer">NCSA · 21 hours</p>
+          <span class="cert__date mono">Dec 2024</span>
+        </article>
+
+        <article class="card cert reveal" data-delay="1" tabindex="0" role="button"
+                 data-cert-image="cybersecurity-02-ncsa-professional.jpg"
+                 aria-label="View certificate: NCSA Cybersecurity Professional Course">
+          <span class="cert__hint" aria-hidden="true">Click to view</span>
+          <h4>Cybersecurity Professional Course</h4>
+          <p class="cert__issuer">NCSA · 20 hours</p>
+          <span class="cert__date mono">Dec 2024</span>
+        </article>
+
+        <article class="card cert reveal" data-delay="2" tabindex="0" role="button"
+                 data-cert-image="cybersecurity-03-ncsa-pentest.jpg"
+                 aria-label="View certificate: NCSA Penetration Test Course">
+          <span class="cert__hint" aria-hidden="true">Click to view</span>
+          <h4>Penetration Test Course</h4>
+          <p class="cert__issuer">NCSA · 28 hours</p>
+          <span class="cert__date mono">Apr 2026</span>
+        </article>
+
+        <article class="card cert cert--featured reveal" tabindex="0" role="button"
+                 data-cert-image="cybersecurity-04-crta.jpg"
+                 aria-label="View certificate: CRTA — Certified Red Team Analyst">
+          <span class="cert__hint" aria-hidden="true">Click to view</span>
+          <h4>CRTA — Certified Red Team Analyst</h4>
+          <p class="cert__issuer">CyberWarfare Labs</p>
+          <span class="cert__date mono">Jul 2026</span>
+        </article>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     7 — CONTACT
+     ═══════════════════════════════════════════════════════════════════ -->
+<section id="contact" class="section section--contact">
+  <div class="contact__bg" aria-hidden="true">
+    <div class="orb orb--c"></div>
+  </div>
+
+  <div class="container contact">
+    <span class="section__num mono reveal">06</span>
+    <h2 class="contact__title reveal" data-delay="1">Let's <span class="grad">connect</span>.</h2>
+    <p class="contact__sub reveal" data-delay="2">
+      Open to internships, security research, and collaboration on data or infrastructure projects.
+      The fastest way to reach me is email.
+    </p>
+
+    <div class="contact__card card reveal" data-delay="3">
+      <div class="contact__email">
+        <span class="k">Email</span>
+        <a href="mailto:nitisit.sena@bumail.net" id="email-link">nitisit.sena@bumail.net</a>
+      </div>
+      <button class="btn btn--copy" id="copy-email"
+              data-copy="nitisit.sena@bumail.net" aria-label="Copy email address">
+        <span class="btn__label">Copy</span>
+      </button>
+    </div>
+
+    <div class="contact__actions reveal" data-delay="4">
+      <a href="mailto:nitisit.sena@bumail.net" class="btn btn--primary">Send an email</a>
+      <a href="#home" class="btn btn--ghost">Back to top</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <p class="mono">© <span id="year">2026</span> Nitisit Senaharn</p>
+    <p class="mono footer__built">Built with HTML · CSS · JavaScript</p>
+  </div>
+</footer>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     PROJECT MODAL  (content injected by script.js)
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+  <div class="modal__overlay" data-close-modal></div>
+  <div class="modal__panel" role="document">
+    <button class="modal__close" data-close-modal aria-label="Close project details">
+      <span aria-hidden="true" style="font-size:1.35rem; line-height:1;">&times;</span>
+    </button>
+    <div class="modal__content" id="modal-content"><!-- injected --></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     LIGHTBOX
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+  <button class="lightbox__close" data-close-lightbox aria-label="Close image viewer">
+    <span aria-hidden="true" style="font-size:1.4rem; line-height:1;">&times;</span>
+  </button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lb-prev" aria-label="Previous image">
+    <span aria-hidden="true" style="font-size:1.5rem; line-height:1;">&lsaquo;</span>
+  </button>
+  <figure class="lightbox__figure">
+    <img id="lb-image" src="" alt="" />
+    <figcaption>
+      <span id="lb-caption"></span>
+      <span class="lightbox__counter mono" id="lb-counter"></span>
+    </figcaption>
+  </figure>
+  <button class="lightbox__nav lightbox__nav--next" id="lb-next" aria-label="Next image">
+    <span aria-hidden="true" style="font-size:1.5rem; line-height:1;">&rsaquo;</span>
+  </button>
+</div>
+
+<!-- Toast for the copy-to-clipboard feedback -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ── Scripts ─────────────────────────────────────────────────────────── -->
+<script src="script.js"></script>
+</body>
+</html>
