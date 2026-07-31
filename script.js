@@ -112,7 +112,7 @@
       chipClass: "chip--accent",
       chipIcon:  "brain-circuit",
       title:     "AEGIS — AI-Enhanced SIEM for Cloud Infrastructure",
-      subtitle:  "Industry-Driven Innovation Project · Presented at IT Empowering Day 2026",
+      subtitle:  "Industry-Driven Innovation Project",
 
       challenge:
         "The brief came from SIAM.AI Cloud, a GPU cloud infrastructure provider. " +
