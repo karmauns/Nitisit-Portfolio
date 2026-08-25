@@ -10,9 +10,8 @@
      07. Project card pointer glow
      08. Project modal
      09. Lightbox gallery
-     10. Certification filter
-     11. Copy-to-clipboard
-     12. Misc (footer year)
+     10. Copy-to-clipboard
+     11. Misc (footer year)
    ══════════════════════════════════════════════════════════════════════════ */
 
 (function () {
@@ -108,48 +107,55 @@
 
     /* ─────────────────────────── AEGIS ─────────────────────────── */
     aegis: {
-      chip:      "AI · Security Ops",
+      chip:      "Data Pipeline · Security",
       chipClass: "chip--accent",
       chipIcon:  "brain-circuit",
-      title:     "AEGIS — AI-Enhanced SIEM for Cloud Infrastructure",
+      title:     "AEGIS — High-Throughput Log Processing Pipeline",
       subtitle:  "Group project · Industry-Driven Innovation Project",
 
       challenge:
-        "The brief came from SIAM.AI Cloud, a GPU cloud infrastructure provider. " +
-        "Traditional SIEM systems cannot keep up with the scale of GPU cluster and AI infrastructure traffic. " +
-        "The volume of logs produces far more alerts than any SOC team can triage, and the noise buries the " +
-        "small number of alerts that represent a real threat.",
+        "The brief came from SIAM.AI Cloud, a GPU cloud infrastructure provider. Their scale " +
+        "produces far more log volume than a rule-based system can triage usefully, and the alerts " +
+        "that matter get buried in the ones that don't. The team's job was to build the layer in " +
+        "between — something that could ingest that stream reliably, enrich it with a model score, " +
+        "and hand analysts a single number to work from instead of raw events.",
 
-      chainTitle: "Solution Architecture",
+      chainTitle: "Pipeline Design",
       chain: [
         {
-          h: "AI Detection",
-          p: "GPU-accelerated inference for anomaly and threat detection, so the detection layer scales with the same hardware the infrastructure already runs on."
+          h: "Ingestion & Streaming",
+          p: "Alerts are shipped into Kafka rather than passed directly between services. That decoupling means a downstream consumer can go offline without stalling collection, and the broker holds the backlog until it recovers."
         },
         {
-          h: "Streaming Pipeline",
-          p: "A high-throughput ingestion pipeline built to sustain heavy log volume without dropping events under load."
+          h: "Schema Normalisation",
+          p: "A transform service maps raw alert JSON into a versioned feature record for the model — flattening nested fields, resolving entity identity, and carrying a <code>schema_version</code> so downstream consumers can evolve independently."
         },
         {
-          h: "LLM Assistant",
-          p: "Summarises and explains alerts in plain language, giving analysts the context behind a detection instead of a raw event dump."
+          h: "GPU Inference",
+          p: "Feature records are scored for behavioural anomaly on GPU, with a per-record latency budget in the low hundreds of milliseconds."
         },
         {
-          h: "Controlled Response",
-          p: "Rule-based playbooks keep automated response bounded and predictable — the system recommends and executes only within limits the team defines."
+          h: "Score Writeback",
+          p: "Rather than emitting duplicate records, scores are merged back into the original alert document, so the analyst view stays a single source of truth instead of two parallel streams."
+        },
+        {
+          h: "Training Data Export",
+          p: "A separate batch path exports historical events from Kafka to date-partitioned Parquet for model training, with known attack windows excluded so the baseline learns normal behaviour only."
         }
       ],
 
-      result: {
-        h: "Alerts a SOC team can act on",
-        p: "An AI-enhanced SIEM designed for hyperscale cloud infrastructure, cutting false-alert noise so analysts can focus on real threats."
-      },
+      reflection:
+        "Working on this was where the data side clicked for me. Most of the hard problems weren't " +
+        "about detection at all — they were about schema drift, consumer lag, keeping services " +
+        "stateless enough to scale sideways, and deciding what happens to data when something " +
+        "downstream falls over. That's the work I want to keep doing.",
 
       note: "Note: Some technical and infrastructure details have been omitted from this case study due to client confidentiality.",
 
       galleryPath: "assets/projects/aegis/",
-      hideGallery: true,
-      gallery: []
+      gallery: [
+        { file: "aegis-04-dashboard-overview.jpg", caption: "Analyst dashboard — alert queue with composite risk scoring and severity distribution." }
+      ]
     }
   };
 
@@ -415,13 +421,36 @@
     /* Small muted footnote (e.g. a confidentiality note) — optional. */
     const noteBlock = p.note ? `<p class="m-note">${esc(p.note)}</p>` : "";
 
-    /* Gallery block is skippable per-project (e.g. AEGIS has none to show). */
+    /* Gallery block is skippable per-project (e.g. a project with none to show). */
     const galleryBlock = p.hideGallery
       ? ""
       : `
       <div class="m-block">
         ${gallery}
       </div>`;
+
+    /* Closing section: DC-1 uses the tinted "Result" callout (headline +
+       detail). AEGIS instead has a plain reflective paragraph — rendered
+       as ordinary body text under "What I Took From It" rather than the
+       callout, since it isn't a headline/detail pair. */
+    const closingBlock = p.result
+      ? `
+      <div class="m-block">
+        <h3 class="m-h">Result</h3>
+        <div class="m-result">
+          <div>
+            <strong>${esc(p.result.h)}</strong>
+            <p>${p.result.p}</p>
+          </div>
+        </div>
+      </div>`
+      : p.reflection
+      ? `
+      <div class="m-block">
+        <h3 class="m-h">What I Took From It</h3>
+        <p>${esc(p.reflection)}</p>
+      </div>`
+      : "";
 
     return `
       <header class="m-head">
@@ -441,18 +470,9 @@
         <div class="m-steps">${steps}</div>
       </div>
       ${vulnBlock}
-
-      <div class="m-block">
-        <h3 class="m-h">Result</h3>
-        <div class="m-result">
-          <div>
-            <strong>${esc(p.result.h)}</strong>
-            <p>${p.result.p}</p>
-          </div>
-        </div>
-      </div>
-      ${noteBlock}
+      ${closingBlock}
       ${galleryBlock}
+      ${noteBlock}
     `;
   }
 
@@ -616,14 +636,6 @@
     openLightboxSet(p.gallery, p.galleryPath, index);
   }
 
-  const CERT_IMAGE_PATH = "assets/certifications/";
-
-  /** Opens a single certificate image — always a one-image set, so the
-      lightbox's prev/next arrows stay hidden automatically. */
-  function openCertLightbox(file, caption) {
-    openLightboxSet([{ file, caption }], CERT_IMAGE_PATH, 0);
-  }
-
   const ACTIVITY_IMAGE_PATH = "assets/activities/";
 
   /** Photos for each activity card — keyed by that card's `data-activity`
@@ -698,26 +710,8 @@
   });
 
 
-  /* ══ 10. CERTIFICATION FILTER ═══════════════════════════════════════════ */
-
-  const filterBtns  = $$(".filter");
-  const certGroups  = $$(".cert-group");
-
-  /* Each cert card opens its own certificate image in the lightbox. */
-  $$(".cert[data-cert-image]").forEach((card) => {
-    const file    = card.dataset.certImage;
-    const caption = card.querySelector("h4")?.textContent.trim() || "Certificate";
-
-    card.addEventListener("click", () => openCertLightbox(file, caption));
-    card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        openCertLightbox(file, caption);
-      }
-    });
-  });
-
-  /* Each activity card opens its photo set in the lightbox. */
+  /* Each activity card opens its photo set in the lightbox. Certifications
+     display their images inline now, so they no longer open anything. */
   $$(".timeline__card[data-activity]").forEach((card) => {
     const key = card.dataset.activity;
 
@@ -730,34 +724,8 @@
     });
   });
 
-  filterBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const filter = btn.dataset.filter;
 
-      filterBtns.forEach((b) => {
-        const active = b === btn;
-        b.classList.toggle("is-active", active);
-        b.setAttribute("aria-pressed", String(active));
-      });
-
-      certGroups.forEach((group) => {
-        const show = filter === "all" || group.dataset.group === filter;
-        group.classList.toggle("is-hidden", !show);
-
-        /* Replay the reveal so newly shown cards animate in again */
-        if (show && !prefersReducedMotion) {
-          $$(".reveal", group).forEach((el) => {
-            el.classList.remove("is-visible");
-            void el.offsetWidth;
-            el.classList.add("is-visible");
-          });
-        }
-      });
-    });
-  });
-
-
-  /* ══ 11. COPY TO CLIPBOARD ══════════════════════════════════════════════ */
+  /* ══ 10. COPY TO CLIPBOARD ══════════════════════════════════════════════ */
 
   const toast     = $("#toast");
   const copyBtn   = $("#copy-email");
@@ -810,7 +778,7 @@
   }
 
 
-  /* ══ 12. MISC ═══════════════════════════════════════════════════════════ */
+  /* ══ 11. MISC ═══════════════════════════════════════════════════════════ */
 
   $("#year").textContent = new Date().getFullYear();
 

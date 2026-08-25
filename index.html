@@ -131,17 +131,20 @@
       <article class="about__bio reveal">
         <p class="lead">
           I'm a Computer Science student at <strong>Bangkok University</strong>, in the
-          <strong>School of Information Technology and Innovation</strong>, focusing on
+          <strong>School of Information Technology and Innovation</strong>, with
           <strong>Data Science and Cyber Security</strong> as my major elective.
         </p>
         <p>
-          I like the space where those two overlap — data can tell you something's wrong, and
-          security work is about figuring out why. I've picked up some of that through coursework
-          and labs, mostly around penetration testing and a bit of detection work.
+          Most of my coursework has been on the security side, and it taught me more than I
+          expected — how systems actually behave, how Linux and networks fit together, how much of
+          security work is really just reading data carefully. But somewhere along the way I
+          realised the part I kept enjoying wasn't the attack itself. It was everything underneath:
+          where the data comes from, how it moves, and why pipelines break when volume goes up.
         </p>
         <p>
-          I also have some experience with web development, which just means I've seen things from
-          both sides — building and breaking. That mix is what I find interesting.
+          That's the direction I want to go — data engineering. I'm working on it with Python and
+          SQL, cloud fundamentals through AWS and Oracle coursework, and the systems background my
+          security studies gave me. Still early, but it's where I want to build.
         </p>
 
         <div class="about__meta">
@@ -175,15 +178,15 @@
       <aside class="about__side">
         <div class="card card--teaser reveal" data-delay="1">
           <h3>Build</h3>
-          <p>Python, JavaScript, SQL and front-end work — from data scripts to full responsive interfaces.</p>
+          <p>Python, SQL and web development, from data scripts to full responsive interfaces.</p>
         </div>
         <div class="card card--teaser reveal" data-delay="2">
-          <h3>Break</h3>
-          <p>Web enumeration, exploitation and privilege escalation on Linux targets, using the standard offensive toolchain.</p>
+          <h3>Move</h3>
+          <p>Streaming and batch data flows, and what it takes to keep them reliable as volume grows.</p>
         </div>
         <div class="card card--teaser reveal" data-delay="3">
-          <h3>Analyse</h3>
-          <p>Machine learning and AI foundations applied to detection — turning noisy log streams into alerts worth reading.</p>
+          <h3>Understand</h3>
+          <p>Linux, networking and systems fundamentals, picked up through security coursework.</p>
         </div>
       </aside>
 
@@ -309,17 +312,17 @@
         <div class="project-card__glow" aria-hidden="true"></div>
 
         <div class="project-card__top">
-          <span class="chip chip--accent">AI · Security Ops</span>
+          <span class="chip chip--accent">Data Pipeline · Security</span>
           <span class="project-card__index mono">P·02</span>
         </div>
 
-        <h3 class="project-card__title">AEGIS — AI-Enhanced SIEM for Cloud Infrastructure</h3>
+        <h3 class="project-card__title">AEGIS — High-Throughput Log Processing Pipeline</h3>
         <p class="project-card__meta mono">Group project · Industry-Driven Innovation Project</p>
 
         <p class="project-card__desc">
-          A SIEM rebuilt for hyperscale AI infrastructure — GPU-accelerated detection with NVIDIA
-          Morpheus, a Kafka streaming pipeline at Gbps–Tbps scale, and an LLM assistant that
-          explains alerts instead of burying analysts in them.
+          A security platform built for hyperscale cloud infrastructure, where the core challenge
+          was throughput: ingesting log data at Gbps–Tbps scale through a streaming pipeline without
+          dropping events, then routing it to GPU-accelerated detection downstream.
         </p>
 
         <footer class="project-card__foot">
@@ -429,12 +432,30 @@
       <p class="section__sub">12 credentials across AI &amp; data, cloud, and offensive security.</p>
     </header>
 
-    <!-- Filter -->
-    <div class="filters reveal" role="group" aria-label="Filter certifications by category">
-      <button type="button" class="filter is-active" data-filter="all"   aria-pressed="true">All</button>
-      <button type="button" class="filter" data-filter="ai"    aria-pressed="false">AI &amp; Data</button>
-      <button type="button" class="filter" data-filter="cloud" aria-pressed="false">Cloud</button>
-      <button type="button" class="filter" data-filter="cyber" aria-pressed="false">Cyber Security</button>
+    <!-- ── Cloud ── -->
+    <div class="cert-group" data-group="cloud">
+      <h3 class="cert-group__title reveal">
+        Cloud <span class="cert-group__count">2</span>
+      </h3>
+      <div class="cert-list">
+
+        <article class="cert-entry reveal">
+          <h4>Oracle Cloud Infrastructure 2025 Certified Foundations Associate</h4>
+          <p class="cert-entry__meta">Oracle · Oct 2025</p>
+          <img class="cert-entry__image" src="assets/certifications/cloud-01-oci-foundations.jpg"
+               alt="Oracle Cloud Infrastructure 2025 Certified Foundations Associate" loading="lazy"
+               onerror="this.classList.add('is-empty')" />
+        </article>
+
+        <article class="cert-entry reveal">
+          <h4>Oracle Cloud Infrastructure 2025 Certified Multicloud Architect Professional</h4>
+          <p class="cert-entry__meta">Oracle · Oct 2025</p>
+          <img class="cert-entry__image" src="assets/certifications/cloud-02-oci-multicloud-architect.jpg"
+               alt="Oracle Cloud Infrastructure 2025 Certified Multicloud Architect Professional" loading="lazy"
+               onerror="this.classList.add('is-empty')" />
+        </article>
+
+      </div>
     </div>
 
     <!-- ── AI & Data ── -->
@@ -442,88 +463,54 @@
       <h3 class="cert-group__title reveal">
         AI &amp; Data <span class="cert-group__count">6</span>
       </h3>
-      <div class="cert-grid">
+      <div class="cert-list">
 
-        <article class="card cert reveal" tabindex="0" role="button"
-                 data-cert-image="ai-data-01-aws-genai-foundations.jpg"
-                 aria-label="View certificate: AWS Academy Graduate — Generative AI Foundations">
-          <span class="cert__hint" aria-hidden="true">Click to view</span>
+        <article class="cert-entry reveal">
           <h4>AWS Academy Graduate — Generative AI Foundations</h4>
-          <p class="cert__issuer">Amazon Web Services · 12 hours</p>
-          <span class="cert__date mono">Apr 2026</span>
+          <p class="cert-entry__meta">Amazon Web Services · 12 hours · Apr 2026</p>
+          <img class="cert-entry__image" src="assets/certifications/ai-data-01-aws-genai-foundations.jpg"
+               alt="AWS Academy Graduate — Generative AI Foundations" loading="lazy"
+               onerror="this.classList.add('is-empty')" />
         </article>
 
-        <article class="card cert reveal" data-delay="1" tabindex="0" role="button"
-                 data-cert-image="ai-data-02-aws-ml-foundations.jpg"
-                 aria-label="View certificate: AWS Academy Graduate — Machine Learning Foundations">
-          <span class="cert__hint" aria-hidden="true">Click to view</span>
+        <article class="cert-entry reveal">
           <h4>AWS Academy Graduate — Machine Learning Foundations</h4>
-          <p class="cert__issuer">Amazon Web Services · 20 hours</p>
-          <span class="cert__date mono">Apr 2026</span>
+          <p class="cert-entry__meta">Amazon Web Services · 20 hours · Apr 2026</p>
+          <img class="cert-entry__image" src="assets/certifications/ai-data-02-aws-ml-foundations.jpg"
+               alt="AWS Academy Graduate — Machine Learning Foundations" loading="lazy"
+               onerror="this.classList.add('is-empty')" />
         </article>
 
-        <article class="card cert reveal" data-delay="2" tabindex="0" role="button"
-                 data-cert-image="ai-data-03-aws-ml-nlp.jpg"
-                 aria-label="View certificate: AWS Academy Graduate — Machine Learning for Natural Language Processing">
-          <span class="cert__hint" aria-hidden="true">Click to view</span>
+        <article class="cert-entry reveal">
           <h4>AWS Academy Graduate — Machine Learning for Natural Language Processing</h4>
-          <p class="cert__issuer">Amazon Web Services · 20 hours</p>
-          <span class="cert__date mono">Apr 2026</span>
+          <p class="cert-entry__meta">Amazon Web Services · 20 hours · Apr 2026</p>
+          <img class="cert-entry__image" src="assets/certifications/ai-data-03-aws-ml-nlp.jpg"
+               alt="AWS Academy Graduate — Machine Learning for Natural Language Processing" loading="lazy"
+               onerror="this.classList.add('is-empty')" />
         </article>
 
-        <article class="card cert reveal" tabindex="0" role="button"
-                 data-cert-image="ai-data-04-oci-ai-foundations.jpg"
-                 aria-label="View certificate: Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate">
-          <span class="cert__hint" aria-hidden="true">Click to view</span>
+        <article class="cert-entry reveal">
           <h4>Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</h4>
-          <p class="cert__issuer">Oracle</p>
-          <span class="cert__date mono">Oct 2025</span>
+          <p class="cert-entry__meta">Oracle · Oct 2025</p>
+          <img class="cert-entry__image" src="assets/certifications/ai-data-04-oci-ai-foundations.jpg"
+               alt="Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate" loading="lazy"
+               onerror="this.classList.add('is-empty')" />
         </article>
 
-        <article class="card cert reveal" data-delay="1" tabindex="0" role="button"
-                 data-cert-image="ai-data-05-oracle-ai-database-aws.jpg"
-                 aria-label="View certificate: Oracle AI Database@AWS Certified Architect Professional">
-          <span class="cert__hint" aria-hidden="true">Click to view</span>
+        <article class="cert-entry reveal">
           <h4>Oracle AI Database@AWS Certified Architect Professional</h4>
-          <p class="cert__issuer">Oracle</p>
-          <span class="cert__date mono">Oct 2025</span>
+          <p class="cert-entry__meta">Oracle · Oct 2025</p>
+          <img class="cert-entry__image" src="assets/certifications/ai-data-05-oracle-ai-database-aws.jpg"
+               alt="Oracle AI Database@AWS Certified Architect Professional" loading="lazy"
+               onerror="this.classList.add('is-empty')" />
         </article>
 
-        <article class="card cert reveal" data-delay="2" tabindex="0" role="button"
-                 data-cert-image="ai-data-06-oracle-data-platform.jpg"
-                 aria-label="View certificate: Oracle Data Platform 2025 Certified Foundations Associate">
-          <span class="cert__hint" aria-hidden="true">Click to view</span>
+        <article class="cert-entry reveal">
           <h4>Oracle Data Platform 2025 Certified Foundations Associate</h4>
-          <p class="cert__issuer">Oracle</p>
-          <span class="cert__date mono">Oct 2025</span>
-        </article>
-
-      </div>
-    </div>
-
-    <!-- ── Cloud ── -->
-    <div class="cert-group" data-group="cloud">
-      <h3 class="cert-group__title reveal">
-        Cloud <span class="cert-group__count">2</span>
-      </h3>
-      <div class="cert-grid">
-
-        <article class="card cert reveal" tabindex="0" role="button"
-                 data-cert-image="cloud-01-oci-foundations.jpg"
-                 aria-label="View certificate: Oracle Cloud Infrastructure 2025 Certified Foundations Associate">
-          <span class="cert__hint" aria-hidden="true">Click to view</span>
-          <h4>Oracle Cloud Infrastructure 2025 Certified Foundations Associate</h4>
-          <p class="cert__issuer">Oracle</p>
-          <span class="cert__date mono">Oct 2025</span>
-        </article>
-
-        <article class="card cert reveal" data-delay="1" tabindex="0" role="button"
-                 data-cert-image="cloud-02-oci-multicloud-architect.jpg"
-                 aria-label="View certificate: Oracle Cloud Infrastructure 2025 Certified Multicloud Architect Professional">
-          <span class="cert__hint" aria-hidden="true">Click to view</span>
-          <h4>Oracle Cloud Infrastructure 2025 Certified Multicloud Architect Professional</h4>
-          <p class="cert__issuer">Oracle</p>
-          <span class="cert__date mono">Oct 2025</span>
+          <p class="cert-entry__meta">Oracle · Oct 2025</p>
+          <img class="cert-entry__image" src="assets/certifications/ai-data-06-oracle-data-platform.jpg"
+               alt="Oracle Data Platform 2025 Certified Foundations Associate" loading="lazy"
+               onerror="this.classList.add('is-empty')" />
         </article>
 
       </div>
@@ -534,42 +521,38 @@
       <h3 class="cert-group__title reveal">
         Cyber Security <span class="cert-group__count">4</span>
       </h3>
-      <div class="cert-grid">
+      <div class="cert-list">
 
-        <article class="card cert reveal" tabindex="0" role="button"
-                 data-cert-image="cybersecurity-01-ncsa-foundation.jpg"
-                 aria-label="View certificate: NCSA Cybersecurity Foundation Course">
-          <span class="cert__hint" aria-hidden="true">Click to view</span>
+        <article class="cert-entry reveal">
           <h4>Cybersecurity Foundation Course</h4>
-          <p class="cert__issuer">NCSA · 21 hours</p>
-          <span class="cert__date mono">Dec 2024</span>
+          <p class="cert-entry__meta">NCSA · 21 hours · Dec 2024</p>
+          <img class="cert-entry__image" src="assets/certifications/cybersecurity-01-ncsa-foundation.jpg"
+               alt="NCSA Cybersecurity Foundation Course" loading="lazy"
+               onerror="this.classList.add('is-empty')" />
         </article>
 
-        <article class="card cert reveal" data-delay="1" tabindex="0" role="button"
-                 data-cert-image="cybersecurity-02-ncsa-professional.jpg"
-                 aria-label="View certificate: NCSA Cybersecurity Professional Course">
-          <span class="cert__hint" aria-hidden="true">Click to view</span>
+        <article class="cert-entry reveal">
           <h4>Cybersecurity Professional Course</h4>
-          <p class="cert__issuer">NCSA · 20 hours</p>
-          <span class="cert__date mono">Dec 2024</span>
+          <p class="cert-entry__meta">NCSA · 20 hours · Dec 2024</p>
+          <img class="cert-entry__image" src="assets/certifications/cybersecurity-02-ncsa-professional.jpg"
+               alt="NCSA Cybersecurity Professional Course" loading="lazy"
+               onerror="this.classList.add('is-empty')" />
         </article>
 
-        <article class="card cert reveal" data-delay="2" tabindex="0" role="button"
-                 data-cert-image="cybersecurity-03-ncsa-pentest.jpg"
-                 aria-label="View certificate: NCSA Penetration Test Course">
-          <span class="cert__hint" aria-hidden="true">Click to view</span>
+        <article class="cert-entry reveal">
           <h4>Penetration Test Course</h4>
-          <p class="cert__issuer">NCSA · 28 hours</p>
-          <span class="cert__date mono">Apr 2026</span>
+          <p class="cert-entry__meta">NCSA · 28 hours · Apr 2026</p>
+          <img class="cert-entry__image" src="assets/certifications/cybersecurity-03-ncsa-pentest.jpg"
+               alt="NCSA Penetration Test Course" loading="lazy"
+               onerror="this.classList.add('is-empty')" />
         </article>
 
-        <article class="card cert cert--featured reveal" tabindex="0" role="button"
-                 data-cert-image="cybersecurity-04-crta.jpg"
-                 aria-label="View certificate: CRTA — Certified Red Team Analyst">
-          <span class="cert__hint" aria-hidden="true">Click to view</span>
+        <article class="cert-entry reveal">
           <h4>CRTA — Certified Red Team Analyst</h4>
-          <p class="cert__issuer">CyberWarfare Labs</p>
-          <span class="cert__date mono">Jul 2026</span>
+          <p class="cert-entry__meta">CyberWarfare Labs · Jul 2026</p>
+          <img class="cert-entry__image" src="assets/certifications/cybersecurity-04-crta.jpg"
+               alt="CRTA — Certified Red Team Analyst" loading="lazy"
+               onerror="this.classList.add('is-empty')" />
         </article>
 
       </div>

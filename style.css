@@ -1245,59 +1245,32 @@ code {
 }
 
 
-/* ══ 13. CERTIFICATIONS ══════════════════════════════════════════════════ */
+/* ══ 13. CERTIFICATIONS (single centred column) ══════════════════════════
+   No clicking required — every certificate is visible while scrolling.
+   The section narrows to a ~900px centred column (text and images both
+   centred), using the site's existing tokens/type — no new palette. */
 
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem;
-  margin-bottom: 2.6rem;
-}
+#certifications .container { max-width: 900px; text-align: center; }
+/* The section header (eyebrow, title, subtitle) stays left-aligned like
+   every other section — only the certificate content below is centred. */
+#certifications .section__head { text-align: left; }
 
-.filter {
-  padding: .52rem 1.15rem;
-  font-size: .87rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r-pill);
-  transition: color var(--t-fast), background-color var(--t-fast),
-              border-color var(--t-fast), transform var(--t-fast);
-}
-.filter:hover { color: var(--text); border-color: var(--border-hover); transform: translateY(-2px); }
-.filter.is-active {
-  color: #ffffff;
-  background: var(--accent-deep);
-  border-color: var(--accent-deep);
-  box-shadow: 0 8px 20px -12px rgba(51,84,110,.5);
-}
-
-.cert-group { margin-bottom: 3.2rem; }
+.cert-group { margin-bottom: 4.5rem; }
 .cert-group:last-of-type { margin-bottom: 0; }
-.cert-group.is-hidden { display: none; }
 
 .cert-group__title {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: .75rem;
-  font-size: 1.02rem;
+  font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: 0;
-  margin-bottom: 1.2rem;
+  margin-bottom: 2rem;
+  padding-bottom: .9rem;
+  border-bottom: 1px solid var(--divider);
   color: var(--text);
 }
-.cert-group__icon {
-  display: grid;
-  place-items: center;
-  width: 34px; height: 34px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-}
-.cert-group__icon i, .cert-group__icon svg { width: 17px; height: 17px; }
-.cert-group__icon--ai    { color: var(--accent-3); background: rgba(185,134,90,.12);  border-color: rgba(185,134,90,.28); }
-.cert-group__icon--cloud { color: var(--accent-2); background: rgba(124,143,107,.13); border-color: rgba(124,143,107,.28); }
-.cert-group__icon--cyber { color: var(--accent-deep); background: var(--accent-a10);  border-color: var(--accent-a35); }
 
 .cert-group__count {
   font-family: var(--font-sans);
@@ -1309,74 +1282,41 @@ code {
   border-radius: var(--r-pill);
 }
 
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1rem;
-}
+/* Generous spacing does the work of separating entries — no dividers needed */
+.cert-list { display: flex; flex-direction: column; gap: 4rem; }
 
-.cert {
-  display: flex;
-  flex-direction: column;
-  gap: .4rem;
-  padding: 1.3rem 1.4rem 1.15rem;
-  border-radius: var(--r-md);
-  cursor: pointer;
-}
-/* Certificate cards open a full-size image — lift a little further than a
-   plain card on hover so the click affordance reads clearly. */
-.cert:hover {
-  transform: translateY(-4px) scale(1.015);
-}
-.cert h4 {
-  font-size: .96rem;
+.cert-entry { display: flex; flex-direction: column; align-items: center; }
+
+.cert-entry h4 {
+  font-size: 1.1rem;
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: -.005em;
-  padding-right: 2rem;
+  color: var(--text);
+  margin-bottom: .4rem;
+  max-width: 42ch;
 }
-.cert__issuer {
-  font-size: .84rem;
+
+.cert-entry__meta {
+  font-family: var(--font-mono);
+  font-size: .78rem;
   color: var(--text-muted);
-}
-.cert__date {
-  margin-top: auto;
-  padding-top: .7rem;
-  color: var(--text-dim);
-  letter-spacing: .04em;
+  letter-spacing: .02em;
+  margin-bottom: 1.3rem;
 }
 
-/* Quiet text hint — invisible at rest, fades in on hover/focus only.
-   Sits at the bottom-right, level with the date, so it never competes
-   with the certificate title for space. */
-.cert__hint {
-  position: absolute;
-  bottom: 1.15rem;
-  right: 1.4rem;
-  font-size: .66rem;
-  font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--accent-deep);
-  opacity: 0;
-  transform: translateX(4px);
-  transition: opacity var(--t-med), transform var(--t-med);
-  pointer-events: none;
+.cert-entry__image {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  box-shadow: var(--sh-sm);
+  background: var(--surface-3);
 }
-.cert:hover .cert__hint,
-.cert:focus-visible .cert__hint {
-  opacity: 1;
-  transform: none;
-}
-
-/* Flagship credential — warm terracotta highlight, not alarm red */
-.cert--featured {
-  border-color: rgba(185,134,90,.32);
-  background:
-    linear-gradient(160deg, rgba(185,134,90,.07), transparent 60%),
-    var(--surface);
-}
-.cert--featured:hover { border-color: rgba(185,134,90,.5); }
+/* Missing file — hide quietly rather than showing a broken-image icon */
+.cert-entry__image.is-empty { display: none; }
 
 
 /* ══ 14. CONTACT & FOOTER ════════════════════════════════════════════════ */
@@ -2040,8 +1980,6 @@ code {
 
   .timeline { padding-left: 1.7rem; }
   .timeline__dot { left: -1.7rem; width: 13px; height: 13px; }
-
-  .cert-grid { grid-template-columns: 1fr; }
 
   .contact__card { flex-wrap: wrap; justify-content: center; text-align: center; }
   .contact__email { justify-items: center; }
