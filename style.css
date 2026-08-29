@@ -900,6 +900,16 @@ code {
 
 .about__side { display: grid; gap: 1rem; }
 
+/* Compact label + badge-row blocks stacked below the teaser cards */
+.about__extra { display: grid; gap: .6rem; }
+.about__extra-label {
+  font-size: .69rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
 .card--teaser { padding: 1.35rem 1.5rem; }
 .card--teaser h3 {
   font-size: 1.05rem;
