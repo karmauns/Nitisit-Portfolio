@@ -107,50 +107,30 @@
 
     /* ─────────────────────────── AEGIS ─────────────────────────── */
     aegis: {
-      chip:      "Data Pipeline · Security",
+      chip:      "SIEM · AI Security",
       chipClass: "chip--accent",
       chipIcon:  "brain-circuit",
-      title:     "AEGIS — High-Throughput Log Processing Pipeline",
+      title:     "AEGIS — AI-Enhanced SIEM for Cloud Infrastructure",
       subtitle:  "Group project · Industry-Driven Innovation Project",
 
       challenge:
-        "The brief came from SIAM.AI Cloud, a GPU cloud infrastructure provider. Their scale " +
-        "produces far more log volume than a rule-based system can triage usefully, and the alerts " +
-        "that matter get buried in the ones that don't. The team's job was to build the layer in " +
-        "between — something that could ingest that stream reliably, enrich it with a model score, " +
-        "and hand analysts a single number to work from instead of raw events.",
+        "The brief came from SIAM.AI Cloud, a GPU cloud infrastructure provider. At their scale, " +
+        "traditional security monitoring produces far more alerts than a team can realistically " +
+        "review, and the ones that signal a real threat get lost in the noise. They needed a system " +
+        "that could watch a high volume of activity, judge what actually mattered, and give analysts " +
+        "a clear signal instead of an endless list.",
 
-      chainTitle: "Pipeline Design",
-      chain: [
-        {
-          h: "Ingestion & Streaming",
-          p: "Alerts are shipped into Kafka rather than passed directly between services. That decoupling means a downstream consumer can go offline without stalling collection, and the broker holds the backlog until it recovers."
-        },
-        {
-          h: "Schema Normalisation",
-          p: "A transform service maps raw alert JSON into a versioned feature record for the model — flattening nested fields, resolving entity identity, and carrying a <code>schema_version</code> so downstream consumers can evolve independently."
-        },
-        {
-          h: "GPU Inference",
-          p: "Feature records are scored for behavioural anomaly on GPU, with a per-record latency budget in the low hundreds of milliseconds."
-        },
-        {
-          h: "Score Writeback",
-          p: "Rather than emitting duplicate records, scores are merged back into the original alert document, so the analyst view stays a single source of truth instead of two parallel streams."
-        },
-        {
-          h: "Training Data Export",
-          p: "A separate batch path exports historical events from Kafka to date-partitioned Parquet for model training, with known attack windows excluded so the baseline learns normal behaviour only."
-        }
-      ],
+      whatBuilt:
+        "AEGIS is an AI-enhanced SIEM (Security Information and Event Management) system designed " +
+        "for that scale. It collects activity from across the infrastructure, streams it through a " +
+        "processing pipeline, scores each event for how suspicious it is using a model running on " +
+        "GPU, and presents analysts with a single prioritised view. A human always makes the final " +
+        "call — the system recommends, it doesn't act on its own.",
 
       reflection:
-        "Working on this was where the data side clicked for me. Most of the hard problems weren't " +
-        "about detection at all — they were about schema drift, consumer lag, keeping services " +
-        "stateless enough to scale sideways, and deciding what happens to data when something " +
-        "downstream falls over. That's the work I want to keep doing.",
-
-      note: "Note: Some technical and infrastructure details have been omitted from this case study due to client confidentiality.",
+        "This was my first time working on something that had to handle real scale, as a team, " +
+        "against a brief from an actual company. I learned as much about how the pieces of a system " +
+        "fit together — and where they break under load — as I did about security itself.",
 
       galleryPath: "assets/projects/aegis/",
       gallery: [
@@ -350,18 +330,36 @@
     const p = PROJECTS[key];
     if (!p) return "";
 
-    const steps = p.chain
-      .map(
-        (s) => `
-        <div class="m-step">
-          <span class="m-step__n" aria-hidden="true"></span>
-          <div class="m-step__body">
-            <strong>${s.h}</strong>
-            <span>${s.p}</span>
-          </div>
-        </div>`
-      )
-      .join("");
+    /* Numbered attack-chain / pipeline-steps block — optional, only
+       rendered for projects that define a `chain` array (DC-1 has one;
+       AEGIS currently doesn't). */
+    const chainBlock = p.chain
+      ? `
+      <div class="m-block">
+        <h3 class="m-h">${esc(p.chainTitle)}</h3>
+        <div class="m-steps">${p.chain
+          .map(
+            (s) => `
+          <div class="m-step">
+            <span class="m-step__n" aria-hidden="true"></span>
+            <div class="m-step__body">
+              <strong>${s.h}</strong>
+              <span>${s.p}</span>
+            </div>
+          </div>`
+          )
+          .join("")}</div>
+      </div>`
+      : "";
+
+    /* Plain narrative block (e.g. AEGIS's "What We Built") — optional. */
+    const whatBuiltBlock = p.whatBuilt
+      ? `
+      <div class="m-block">
+        <h3 class="m-h">What We Built</h3>
+        <p>${esc(p.whatBuilt)}</p>
+      </div>`
+      : "";
 
     /* Vulnerability Assessment — only DC-1 has this data, so the whole
        block is omitted for projects that don't define it (e.g. AEGIS). */
@@ -464,11 +462,8 @@
         <h3 class="m-h">The Challenge</h3>
         <p>${esc(p.challenge)}</p>
       </div>
-
-      <div class="m-block">
-        <h3 class="m-h">${esc(p.chainTitle)}</h3>
-        <div class="m-steps">${steps}</div>
-      </div>
+      ${chainBlock}
+      ${whatBuiltBlock}
       ${vulnBlock}
       ${closingBlock}
       ${galleryBlock}
